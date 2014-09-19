@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2155279477">
+    <data-source source="LOCAL" name="Rails payment-illustrator: development" uuid="a57a7df5-6792-4585-bf5a-42ea5be36bc0">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:payment-illustrator_development</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails payment-illustrator: test" uuid="81cdec97-3644-4f33-86e9-34568f686f14">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:payment-illustrator_test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails payment-illustrator: production" uuid="24ba38b4-6013-4cf6-8bcb-8db247a134d0">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:payment-illustrator_production</jdbc-url>
+      <user-name>payment-illustrator</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddffadfebdff3dfe7dfefdfe4dffedf87dfe3dfe6dfe6dfffdff9dffedff8dfebdffedfe5dff8dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

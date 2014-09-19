@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  root              'pi#index'
+  get 'help'     => 'pi#help'
+  get 'about'    => 'pi#about'
+  get 'contact'  => 'pi#contact'
+  get 'privacy'  => 'pi#new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
