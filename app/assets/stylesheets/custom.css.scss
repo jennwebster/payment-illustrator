@@ -30,6 +30,26 @@ textarea {
   }
 }
 
+label{
+  display: inline-block;
+  float: left;
+  clear: left;
+  width: 30%;
+  text-align: right;
+}
+input {
+  display: inline-block;
+  float: left;
+}
+button {
+  clear:both;
+  text-align: center;
+}
+
+.pm {
+  text-indent: 5 px;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -47,7 +67,7 @@ h2 {
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
   font-weight: normal;
   color: $gray-light;
 }
@@ -65,7 +85,6 @@ p {
   margin-right: 10px;
   font-size: 1.7em;
   color: white;
-  text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
@@ -99,4 +118,21 @@ footer {
       margin-left: 15px;
     }
   }
+}
+
+/* for expanding, contracting sections */
+
+section {
+  border-bottom: 1px solid $gray-medium-light;
+}
+
+h2 {
+  cursor: pointer;
+  background-image:url('http://idratherbewriting.com/wp-content/uploads/2013/03/minusb.jpg');
+  background-repeat:no-repeat;
+  text-indent:23px;
+}
+.open {
+  background-image:url('http://idratherbewriting.com/wp-content/uploads/2013/03/plus3.jpg');
+  background-repeat:no-repeat;
 }
