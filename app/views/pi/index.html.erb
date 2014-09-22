@@ -11,13 +11,13 @@
       <br>
       <br>
       <div>
-        <label>Number of Patients per Month: </label><input type="number" id="npts" name="npts">
-        <label>% Female: </label><input type="number" id="ndx" name="ndx">
-        <label>Number Age 0-18: </label><input type="number" id="nchild" name="nchild">
-        <label>Number Age 9-25: </label><input type="number" id="nya" name="nya">
-        <label>Number Age 26-64: </label><input type="number" id="nadult" name="nadult">
-        <label>Number Age 65-79: </label><input type="number" id="nelderly" name="nelderly">
-        <label>Number Age 80+: </label><input type="number" id="nextelderly" name="nextelderly">
+        <label>Number of Patients per Month: </label><input type="number" id="npts" name="npts" value="100">
+        <label>% Female: </label><input type="number" id="ndx" name="ndx" value="50">
+        <label>Number Age 0-18: </label><input type="number" id="nchild" name="nchild" value = "0">
+        <label>Number Age 9-25: </label><input type="number" id="nya" name="nya" value ="10">
+        <label>Number Age 26-64: </label><input type="number" id="nadult" name="nadult" value = "40">
+        <label>Number Age 65-79: </label><input type="number" id="nelderly" name="nelderly" value = "30">
+        <label>Number Age 80+: </label><input type="number" id="nextelderly" name="nextelderly" value = "20">
       </div>
   </div>
 
@@ -55,9 +55,9 @@
   </div>
 </section>
 <section>
-  <h2>Step 4: Procedures</h2>
+  <h2>Step 4: Utilization</h2>
   <div>
-    <button name="Upload a proc file">Upload a procedure code file</button>
+    <button name="Upload a proc file">Upload a utilization file</button>
     <br>
     <br>
     <label>Average Number of Office Visits Per Month: </label><input type="number" id="ndx" name="ndx">
@@ -69,9 +69,22 @@
   </div>
 </section>
 <section>
-  <h2>Step 5: Payment Model</h2>
+  <h2>Step 5: Treatment</h2>
+  <div>
+    <button name="Upload a proc file">Upload a treatment file</button>
+    <br>
+    <br>
+    <label>Average number of chemotherapy visits per week: </label><input type="number" id="ndx" name="ndx">
+    <label>% of patients receiving chemo per month: </label><input type="text">
+    <label>% of patients receiving Neulasta: </label><input type = "text">
+    <label>% of patients receiving monoclonal antibodies: </label><input type="text">
+    <label>% of on oral chemotherapy: </label><input type="text">
+  </div>
+</section>
+<section>
+  <h2>Step 6: Payment Model</h2>
   <div id="pm">
-    <p>What is the trigger for a new episode in the proposed model?</p>
+    <label>What is the trigger for a new episode in the proposed model?<br><br><br></label>
     <input type="radio" name="trigger" value="FirstVisit"> First Visit<br>
     <input type="radio" name="trigger" value="NewDx"> New Diagnosis<br>
     <input type="radio" name="trigger" value="ChemoStart"> Chemotherapy/Hormone Therapy Start<br>
@@ -80,55 +93,48 @@
     <br>
     <br>
 
-    <p>How long does an episode last? If the model does not use episodes of care enter 0 (zero).</p>
-    Episode length: <input type="number" name="length"> months
+    <label>How long does an episode last? If the model does not use episodes of care enter 0 (zero).</label>
+   <input type="number" name="length"> months
     <br>
     <br>
-    <p>Will you receive a stipend to cover infrastructure or other costs?</p>
-    <input type="radio" name="pmpmyn" value="YesPercentage"> Yes: A one time fee that is a percentage of the total
-    bundled amount<br>
-    <input type="radio" name="pmpmyn" value="YesPMPM"> Yes: A per member per month (PMPM) fee that is not related to the
-    total cost of care<br>
+    <br>
+    <label>Will you receive a stipend to cover infrastructure or other costs?<br><br><br><br></label>
+    <input type="radio" name="pmpmyn" value="ssunlimited"><input type="number" name="pmpmyn" value="500"> One Time<br><br>
+    <input type="radio" name="pmpmyn" value="ssunlimited"><input type="number" name="pmpmyn" value="50"> Per Member Per Month (PMPM)<br><br>
     <input type="radio" name="pmpmyn" value="No"> No<br>
     <input type="radio" name="pmpmyn" value="Other"> Other
     <br>
     <br>
-    <p>Will you receive a stipend to cover chemotherapy storage and handling?</p>
-    <input type="radio" name="rxpayment" value="YesPercentage"> Yes: A one time stipend of
-    $<input type="number" name="chemostipend"><br><br>
-    <input type="radio" name="rxpayment" value="YesPMPM"> Yes: A monthly stipend for each patient on chemotherapy of
-    $<input type="number" name="chemostipend"><br><br>
-    <input type="radio" name="rxpayment" value="No"> No<br>
-    <input type="radio" name="rxpayment" value="Other"> Other
+    <label>Will you receive a stipend to cover chemotherapy storage and handling?<br><br><br><br></label>
+    <input type="radio" name="pmpmchemo" value="ssunlimited"><input type="number" name="pmpmyn" value="500"> One Time<br><br>
+    <input type="radio" name="pmpmchemo" value="ssunlimited"><input type="number" name="pmpmyn" value="50"> Per Member Per Month (PMPM)<br><br>
+    <input type="radio" name="pmpmchemo" value="No"> No<br>
+    <input type="radio" name="pmpmchemo" value="Other"> Other
     <br>
     <br>
-    <p>Will you be eligible for shared savings?</p>
+    <label>Will you be eligible for shared savings?<br><br><br><br></label>
     <input type="radio" name="sharedsavings" value="ssunlimited"> Yes, with no limit<br>
-    <input type="radio" name="sharedsavings" value="ssdollarcap"> Yes, up to
-    $<input type="number" name="ssdollarcap"> or
-    <input type="number" name="sspercentcap">%<br>
+    <input type="radio" name="sharedsavings" value="ssdollarcap"><input type="number" name="sspercentcap">% cap<br><br>
     <input type="radio" name="sharedsavings" value="No"> No<br>
     <input type="radio" name="sharedsavings" value="Other"> Other
     <br>
     <br>
-    <p>Will you accept downside risk?</p>
+    <label>Will you accept downside risk?<br><br><br><br></label>
     <input type="radio" name="risk" value="ssunlimited"> Yes, with no limit<br>
-    <input type="radio" name="risk" value="ssdollarcap"> Yes, up to $<input type="number" name="riskdollarcap"> or
-    <input type="number" name="riskpercentcap">%<br>
+    <input type="radio" name="risk" value="ssdollarcap"><input type="number" name="riskpercentcap">% cap<br><br>
     <input type="radio" name="risk" value="No"> No<br>
     <input type="radio" name="risk" value="Other"> Other
     <br>
     <br>
-    <p>For practices accepting downside risk, which of the following reinsurance products will you purchase?</p>
-    <input type="checkbox" name="reinsurance" value="perpatient"> Per episode after a loss of
-    $<input type="number" name="ptreinsdollar"> or <input type="number" name="ptreinspercent">%<br>
-    <input type="checkbox" name="reinsurance" value="poplation"> For all patients after a total loss of
-    $<input type="number" name="ptreinsdollar"> or <input type="number" name="ptreinspercent">%<br>
+    <label>For practices accepting downside risk, will you purchase reinsurance?<br><br></label>
+    <input type="checkbox" name="reinsurance" value="perpatient"> Per episode<br>
+    <input type="checkbox" name="reinsurance" value="poplation"> Per population<br>
     <input type="checkbox" name="reinsurance" value="No"> None<br>
     <input type="checkbox" name="reinsurance" value="NA"> N/A
     <br>
     <br>
-    <p>Which services will be included in the bundle (check all that apply)</p>
+    <label>Which services will be included in the bundle (check all that apply)<br><br><br><br><br><br><br><br>
+      <br><br><br><br></label>
     <input type="checkbox" name="bundleinclude" value="officevisit"> Office Visits<br>
     <input type="checkbox" name="bundleinclude" value="phone"> Phone Calls (physician phone consults, nursing
     triage calls, etc.)<br>
@@ -145,28 +151,28 @@
     <input type="checkbox" name="bundleinclude" value="fu"> Follow up
     <br>
     <br>
-    <p>Is the bundled payment reconciled prospectively (lump sum paid out directly after trigger event) or retrospectively
-      (practice paid via FFS with reconciliation and additional payments at end of episode)</p>
-    <input type="radio" name="timing" value="Prospective"> Prospective<br>
-    <input type="radio" name="timing" value="Retrospective"> Retrospective
+    <label>Is the bundled payment reconciled prospectively or retrospectively?</label>
+    <input type="radio" name="timing" value="Prospective"> Prospective (lump sum paid out directly after trigger
+      event) <br>
+    <input type="radio" name="timing" value="Retrospective"> Retrospective (practice paid via FFS with reconciliation
+      and additional payments at end of episode)
     <br>
     <br>
-    <p>Bundled Payment Amount (if known): $<input type="number" name="ptreinsdollar">
-    <br>
-    <br>
-    <input type="button" name="submit" value="submit">
   </div>
-</section>
-<section>
-  <h4>Average Reimbursement Per Patient:</h4>
-  <h4>Variance:</h4>
-  <h4>% Patients with Cost Under Bundled Amount:</h4>
-  <h4>Average monthly reimbursement difference vs. Medicare FFS:</h4>
-  <h4>Best Month:</h4>
-  <h4>Worst Month:</h4>
+  <p><label>Bundled Payment Amount (if known): $</label><input type="number" name="bp" id="bp">
+    <br>
+    <br>
 </section>
 <section>
   <canvas id="dist" width="500" height="400">
   </canvas>
   <canvas id="sim" width="500" height="400"> </canvas>
+</section>
+<section>
+  <h4 id="mean">Average Reimbursement Per Patient:</h4>
+  <h4 id="variance">Variance:</h4>
+  <h4>% Patients with Cost Under Bundled Amount: 50%</h4>
+  <h4 id="delta">Average monthly reimbursement difference vs. Medicare FFS: $0</h4>
+  <h4 id="bestMonth">Best Month:</h4>
+  <h4 id="worstMonth">Worst Month:</h4>
 </section>
