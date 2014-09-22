@@ -11,6 +11,7 @@ gem 'jbuilder',       '2.1.3'
 gem 'bootstrap-sass', '3.2.0.0'
 gem 'sdoc',           '0.4.0', group: :doc
 gem 'pg'
+gem 'newrelic_rpm'
 
 group :test do
   gem 'minitest-reporters', '1.0.5'
