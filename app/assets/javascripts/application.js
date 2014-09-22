@@ -125,8 +125,8 @@ for (var i = 0; i < nBins; i++) {
     ctx.stroke();
     ctx.fillStyle = "#000000";
     ctx.font = "14px Arial";
-    ctx.fillText("0",25,425);
-    ctx.fillText(nBins*10000,350,300);
+    ctx.fillText("0",25,350);
+    ctx.fillText(nBins*10000,375,350);
 
 
 var canvas = document.getElementById('sim');
@@ -174,7 +174,7 @@ context.stroke();
 context.font = "14px Arial";
 context.fillText("0",2,hAxis);
 context.fillText(mcMax,2,20);
-context.fillText(mcMin,2,320);
+context.fillText(mcMin,2,350);
 var mcLength = mcResults.length;
 for (var i = 0; i < mcLength; i++) {
     var barWidth = (2/3)*(350/mcLength);
@@ -281,8 +281,8 @@ for (var i = 0; i < mcLength; i++) {
             ctx.stroke();
             ctx.fillStyle = "#000000";
             ctx.font = "14px Arial";
-            ctx.fillText("0",25,425);
-            ctx.fillText(nBins*10000,350,300);
+            ctx.fillText("0",25,350);
+            ctx.fillText(nBins*10000,375,350);
 
 
             var canvas = document.getElementById('sim');
@@ -328,10 +328,11 @@ for (var i = 0; i < mcLength; i++) {
             context.moveTo(50, 325);
             context.lineTo(50, 25);
             context.stroke();
+            context.fillStyle = "#000000";
             context.font = "14px Arial";
             context.fillText("0",2,hAxis);
             context.fillText(mcMax,2,20);
-            context.fillText(mcMin,2,320);
+            context.fillText(mcMin,2,350);
             var mcLength = mcResults.length;
             for (var i = 0; i < mcLength; i++) {
                 var barWidth = (2/3)*(350/mcLength);

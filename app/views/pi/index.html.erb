@@ -2,6 +2,13 @@
 
 <section>
   <h3>Instructions:</h3>
+  <p>Select a patient population based on cancer diagnosis, chemotherapy start or other factors that you'd like
+    included in this analysis, and an episode length (generally 1-12 months). For that population, pull all diagnosis
+    codes, procedures, treatment plans and ED/IP encounter dates. All data fields are prepopulated with national average
+    data based on the SEER sample. If you're missing any data points, the SEER data will be used as a default.</p>
+  <p>Alternatively, you can prepare and upload Excel files containing your patient level data. These files will not be
+    uploaded to the COME HOME database and we will process as much as possible on your servers. However, this
+    application is not currently housed in on a HIPAA compliant server, so please do not include any PHI.</p>
 
 </section>
 <section>
@@ -44,7 +51,7 @@
   </div>
 </section>
 <section>
-  <h2>Step 3: Other Dx</h2>
+  <h2>Step 3: Comorbidities</h2>
   <div>
     <label>% of Patients with Diabetes: </label><input type="number" id="ndx" name="ndx">
     <label>% of Patients with Coronary Artery Disease: </label><input type = "text">
@@ -55,7 +62,18 @@
   </div>
 </section>
 <section>
-  <h2>Step 4: Utilization</h2>
+  <h2>Step 4: Potentially Avoidable Complications</h2>
+  <div>
+    <label>Which Diagnosis Codes should be considered Potentially Avoidable Complications?<br><br><br><br><br></label>
+    <input type="checkbox" name="pacdx" value="No"> None<br>
+    <input type="checkbox" name="pacdx" value="dvtpe"> DVT/PE 453.xx, 415.1x - 415.2<br>
+    <input type="checkbox" name="pacdx" value="sepsis"> Sepsis 955.91, 955.92<br>
+    <input type="checkbox" name="pacdx" value="pneu"> Pneumonia 486.xx<br>
+    <input type="checkbox" name="pacdx" value="Other"> <input type="text" name="otherpac"> Separate other ICD9 codes with commas<br>
+  </div>
+</section>
+<section>
+  <h2>Step 5: Utilization</h2>
   <div>
     <button name="Upload a proc file">Upload a utilization file</button>
     <br>
@@ -69,7 +87,7 @@
   </div>
 </section>
 <section>
-  <h2>Step 5: Treatment</h2>
+  <h2>Step 6: Treatment</h2>
   <div>
     <button name="Upload a proc file">Upload a treatment file</button>
     <br>
@@ -82,7 +100,7 @@
   </div>
 </section>
 <section>
-  <h2>Step 6: Payment Model</h2>
+  <h2>Step 7: Payment Model</h2>
   <div id="pm">
     <label>What is the trigger for a new episode in the proposed model?<br><br><br></label>
     <input type="radio" name="trigger" value="FirstVisit"> First Visit<br>
@@ -171,8 +189,9 @@
 <section>
   <h4 id="mean">Average Reimbursement Per Patient:</h4>
   <h4 id="variance">Variance:</h4>
-  <h4>% Patients with Cost Under Bundled Amount: 50%</h4>
+  <h4>% Patients with Cost Under Bundled Amount: 50.00%</h4>
   <h4 id="delta">Average monthly reimbursement difference vs. Medicare FFS: $0</h4>
   <h4 id="bestMonth">Best Month:</h4>
   <h4 id="worstMonth">Worst Month:</h4>
+  <h4 id="pacrate">Potentially Avoidable Complication Rate: 14.00%</h4>
 </section>
