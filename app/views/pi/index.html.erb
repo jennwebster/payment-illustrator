@@ -35,30 +35,30 @@
     <button name="Upload a dx file">Upload a diagnosis file</button>
     <br>
     <br>
-    <label>Number of New Breast Cancer Diagnoses: </label><input type="number" id="nnewbreast" name="nnewbreast">
-    <label>% Metastatic: </label><input type="number" id="nrecbreast" name="nrecbreast">
+    <label>Number of New Breast Cancer Diagnoses: </label><input type="number" id="nnewbreast" name="nnewbreast" value="25">
+    <label>% Metastatic: </label><input type="number" id="nrecbreast" name="nrecbreast" value="5">
     <label>% ER/PR Positive: </label><input type="number" id="nrecbreast" name="nrecbreast">
     <label>% Her2 Positive: </label><input type="number" id="nrecbreast" name="nrecbreast">
-    <label>Number of New Colon Cancer Diagnoses: </label><input type="number" id="nnewcolon" name="nnewcolon">
-    <label>% Metastatic: </label><input type="number" id="nreccolon" name="nreccolon">
+    <label>Number of New Colon Cancer Diagnoses: </label><input type="number" id="nnewcolon" name="nnewcolon" value="25">
+    <label>% Metastatic: </label><input type="number" id="nreccolon" name="nreccolon" value="5">
     <label>% KRAS Positive: </label><input type="number" id="nnewlung" name="nnewlung">
-    <label>Number of New Lung Cancer Diagnoses: </label><input type="number" id="nreclung" name="nreclung">
-    <label>% Metastatic: </label><input type="number" id="nreccolon" name="nreccolon">
+    <label>Number of New Lung Cancer Diagnoses: </label><input type="number" id="nreclung" name="nreclung" value="25">
+    <label>% Metastatic: </label><input type="number" id="nreccolon" name="nreccolon" value="5">
     <label>% ALK Positive: </label><input type="number" id="nreccolon" name="nreccolon">
     <label>% EGFR Positive: </label><input type="number" id="nreccolon" name="nreccolon">
-    <label>Number of New Other Cancer Diagnoses: </label><input type="number" id="nnewother" name="nnewother">
-    <label>% Metastatic: </label><input type="number" id="nrecother" name="nrecother">
+    <label>Number of New Other Cancer Diagnoses: </label><input type="number" id="nnewother" name="nnewother" value="25">
+    <label>% Metastatic: </label><input type="number" id="nrecother" name="nrecother" value="5">
   </div>
 </section>
 <section>
   <h2>Step 3: Comorbidities</h2>
   <div>
-    <label>% of Patients with Diabetes: </label><input type="number" id="ndx" name="ndx">
-    <label>% of Patients with Coronary Artery Disease: </label><input type = "text">
-    <label>% of Patients with Congestive Heart Failure: </label><input type="text">
-    <label>% of Patients with Mild Liver Disease: </label><input type="text">
-    <label>% of Patients with Moderate to Severe Liver Disease: </label><input type="text">
-    <label>% of Patients with HIV: </label><input type="text">
+    <label>% of Patients with Diabetes: </label><input type="number" id="ndx" name="ndx" value="5">
+    <label>% of Patients with Coronary Artery Disease: </label><input type = "text" value="5">
+    <label>% of Patients with Congestive Heart Failure: </label><input type="text" value="5">
+    <label>% of Patients with Mild Liver Disease: </label><input type="text" value="5">
+    <label>% of Patients with Moderate to Severe Liver Disease: </label><input type="text" value="5">
+    <label>% of Patients with HIV: </label><input type="text" value="5">
   </div>
 </section>
 <section>
@@ -66,10 +66,13 @@
   <div>
     <label>Which Diagnosis Codes should be considered Potentially Avoidable Complications?<br><br><br><br><br></label>
     <input type="checkbox" name="pacdx" value="No"> None<br>
-    <input type="checkbox" name="pacdx" value="dvtpe"> DVT/PE 453.xx, 415.1x - 415.2<br>
-    <input type="checkbox" name="pacdx" value="sepsis"> Sepsis 955.91, 955.92<br>
-    <input type="checkbox" name="pacdx" value="pneu"> Pneumonia 486.xx<br>
+    <input type="checkbox" name="pacdx" value="dvtpe"> DVT/PE (453.xx, 415.1x - 415.2)<br>
+    <input type="checkbox" name="pacdx" value="sepsis"> Sepsis (955.91, 955.92)<br>
+    <input type="checkbox" name="pacdx" value="pneu"> Pneumonia (486.xx)<br>
     <input type="checkbox" name="pacdx" value="Other"> <input type="text" name="otherpac"> Separate other ICD9 codes with commas<br>
+    <label>% of Patients with DVT/PE: </label><input type="number" id="ndx" name="ndx" value="5">
+    <label>% of Patients with Sepsis: </label><input type = "text" value="5">
+    <label>% of Patients with Pneumonia: </label><input type="text" value="5">
   </div>
 </section>
 <section>
