@@ -35,7 +35,7 @@ $(document).ready(function () {
         $('h2').removeClass("open");
     });
 
-}); //end ready
+
 
 //Graphs
 
@@ -168,3 +168,5 @@ for (var i = 0; i < mcLength; i++) {
     }
     context.fillRect(barX, barY, barWidth, barHeight);
 }
+
+}); //end ready
