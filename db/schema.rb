@@ -11,9 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140925012537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dappers", force: true do |t|
+    t.string   "personid"
+    t.string   "datatype"
+    t.text     "description"
+    t.decimal  "nvalue1"
+    t.decimal  "nvalue2"
+    t.string   "cvalue1"
+    t.string   "cvalue2"
+    t.datetime "dvalue1"
+    t.datetime "dvalue2"
+    t.string   "image"
+    t.string   "soundfile"
+    t.text     "note"
+    t.string   "providerid"
+    t.datetime "timestamp"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

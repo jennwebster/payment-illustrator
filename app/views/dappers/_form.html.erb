@@ -1,0 +1,73 @@
+<%= form_for(@dapper) do |f| %>
+  <% if @dapper.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dapper.errors.count, "error") %> prohibited this dapper from being saved:</h2>
+
+      <ul>
+      <% @dapper.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :personid %><br>
+    <%= f.text_field :personid %>
+  </div>
+  <div class="field">
+    <%= f.label :datatype %><br>
+    <%= f.text_field :datatype %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :nvalue1 %><br>
+    <%= f.text_field :nvalue1 %>
+  </div>
+  <div class="field">
+    <%= f.label :nvalue2 %><br>
+    <%= f.text_field :nvalue2 %>
+  </div>
+  <div class="field">
+    <%= f.label :cvalue1 %><br>
+    <%= f.text_field :cvalue1 %>
+  </div>
+  <div class="field">
+    <%= f.label :cvalue2 %><br>
+    <%= f.text_field :cvalue2 %>
+  </div>
+  <div class="field">
+    <%= f.label :dvalue1 %><br>
+    <%= f.datetime_select :dvalue1 %>
+  </div>
+  <div class="field">
+    <%= f.label :dvalue2 %><br>
+    <%= f.datetime_select :dvalue2 %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :soundfile %><br>
+    <%= f.text_field :soundfile %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br>
+    <%= f.text_area :note %>
+  </div>
+  <div class="field">
+    <%= f.label :providerid %><br>
+    <%= f.text_field :providerid %>
+  </div>
+  <div class="field">
+    <%= f.label :timestamp %><br>
+    <%= f.datetime_select :timestamp %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

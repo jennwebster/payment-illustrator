@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :dappers
+
   root              'pi#index'
   get 'help'     => 'pi#help'
   get 'about'    => 'pi#about'

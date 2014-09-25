@@ -1,0 +1,51 @@
+<h1>Listing dappers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Personid</th>
+      <th>Datatype</th>
+      <th>Description</th>
+      <th>Nvalue1</th>
+      <th>Nvalue2</th>
+      <th>Cvalue1</th>
+      <th>Cvalue2</th>
+      <th>Dvalue1</th>
+      <th>Dvalue2</th>
+      <th>Image</th>
+      <th>Soundfile</th>
+      <th>Note</th>
+      <th>Providerid</th>
+      <th>Timestamp</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dappers.each do |dapper| %>
+      <tr>
+        <td><%= dapper.personid %></td>
+        <td><%= dapper.datatype %></td>
+        <td><%= dapper.description %></td>
+        <td><%= dapper.nvalue1 %></td>
+        <td><%= dapper.nvalue2 %></td>
+        <td><%= dapper.cvalue1 %></td>
+        <td><%= dapper.cvalue2 %></td>
+        <td><%= dapper.dvalue1 %></td>
+        <td><%= dapper.dvalue2 %></td>
+        <td><%= dapper.image %></td>
+        <td><%= dapper.soundfile %></td>
+        <td><%= dapper.note %></td>
+        <td><%= dapper.providerid %></td>
+        <td><%= dapper.timestamp %></td>
+        <td><%= link_to 'Show', dapper %></td>
+        <td><%= link_to 'Edit', edit_dapper_path(dapper) %></td>
+        <td><%= link_to 'Destroy', dapper, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dapper', new_dapper_path %>
