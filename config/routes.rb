@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :providers
+
   resources :dappers
 
   root              'pi#index'
