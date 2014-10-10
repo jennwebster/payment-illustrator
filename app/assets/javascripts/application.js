@@ -51,12 +51,12 @@ ctx.clearRect(0, 0, 600, 400);
 var nResults = 100;
 $('#npts').keyup(
     function(){
-        nResults = $(this).val() * 24;
+        nResults = $(this).val() * 100;
     });
 //var nResults = $("npts").val();
 var costResults = [];
 for (var i = 0; i < nResults; i++) {
-    costResults.push(Math.floor(Math.random()*50000+Math.random()*50000+Math.random()*50000+Math.random()*50000));
+    costResults.push(Math.floor(Math.random()*10000+Math.random()*10000+Math.random()*10000+Math.random()*10000));
 }
 var costMin = Math.min.apply(Math, costResults);
 var costMax = Math.max.apply(Math, costResults);
@@ -67,6 +67,7 @@ var costVariance = 0;
 for (var i = 0; i < costLength; i++) {
     costVariance = costVariance + (costResults[i] - costMean)*(costResults[i] - costMean);
 }
+var costStDev = Math.round(Math.sqrt(costVariance));
 var lowerPercentile = costResults.sort(function(a,b){
         return a - b}
 )[Math.floor(0.5*costLength)];
@@ -150,14 +151,14 @@ var mcMin = Math.min.apply(Math, mcResults);
 var mcMax = Math.max.apply(Math, mcResults);
 
 
-$( "#bestMonth" ).text( "Best Month: $" + mcMax );
-$( "#worstMonth" ).text( "Worst Month: $" + mcMin );
+$( "#bestMonth" ).text( "$" + mcMax );
+$( "#worstMonth" ).text( "$" + mcMin );
 
       mcResults.pop();
 
-    $( "#mean" ).text( "Average Reimbursement: $" + costMean );
-    $( "#variance" ).text( "Variance: $" + costVariance );
-    $( "#delta").text( "Average PMPM reimbursement difference vs. Medicare FFS: $" + (bpAmount - costMean)/6);
+    $( "#mean" ).text( "$" + Math.round(costMean) );
+    $( "#stdev" ).text( "$" + Math.round(costStDev) );
+    $( "#delta").text( "$" + Math.round((bpAmount - costMean)/6));
 
 var zeroRatio = ((mcMin + mcMax)/2)*(300/(mcMax - mcMin));
 var hAxis = 162.5 + zeroRatio;
@@ -176,20 +177,26 @@ context.fillText("0",2,hAxis);
 context.fillText(mcMax,2,20);
 context.fillText(mcMin,2,350);
 var mcLength = mcResults.length;
-for (var i = 0; i < mcLength; i++) {
-    var barWidth = (2/3)*(350/mcLength);
-    var barHeight = (275/(mcMax - mcMin))*mcResults[i];
-    var barX = 50 + i*(350/mcLength) + (1/6)*(350/mcLength);
-    var barY = hAxis - (275/(mcMax - mcMin))*mcResults[i];
-    context.beginPath();
-    if (mcResults[i] < 0) {
-        context.fillStyle = "rgb(200,0,0)"
+    for (var i = 0; i < mcLength; i++) {
+        var barWidth = (350/mcLength);
+        var barHeight = (275/(mcMax - mcMin))*mcResults.sort(function(a, b) {
+            return b-a;
+        })[i];
+        var barX = 50 + i*(350/mcLength) + (1/6)*(350/mcLength);
+        var barY = hAxis - (275/(mcMax - mcMin))*mcResults.sort(function(a, b) {
+            return b-a;
+        })[i];;
+        context.beginPath();
+        if (mcResults.sort(function(a, b) {
+            return b-a;
+        })[i] < 0) {
+            context.fillStyle = "rgb(200,0,0)"
+        }
+        else {
+            context.fillStyle = "rgb(0,0,200)"
+        }
+        context.fillRect(barX, barY, barWidth, barHeight);
     }
-    else {
-        context.fillStyle = "rgb(0,0,200)"
-    }
-    context.fillRect(barX, barY, barWidth, barHeight);
-}
 
 
     $('input').change(
@@ -207,13 +214,9 @@ for (var i = 0; i < mcLength; i++) {
             var nResults = 100;
             $('#npts').keyup(
                 function(){
-                    nResults = $(this).val() * 24;
+                    nResults = $(this).val() * 100;
                 });
 
-            var costResults = [];
-            for (var i = 0; i < nResults; i++) {
-                costResults.push(Math.floor(Math.random()*50000+Math.random()*50000+Math.random()*50000+Math.random()*50000));
-            }
             var costMin = Math.min.apply(Math, costResults);
             var costMax = Math.max.apply(Math, costResults);
             var costLength = costResults.length;
@@ -223,6 +226,7 @@ for (var i = 0; i < mcLength; i++) {
             for (var i = 0; i < costLength; i++) {
                 costVariance = costVariance + (costResults[i] - costMean)*(costResults[i] - costMean);
             }
+            var costStDev = Math.round(Math.sqrt(costVariance));
             var lowerPercentile = costResults.sort(function(a,b){
                     return a - b}
             )[Math.floor(0.5*costLength)];
@@ -310,9 +314,9 @@ for (var i = 0; i < mcLength; i++) {
             $( "#worstMonth" ).text( "Worst Month: $" + mcMin );
 
 
-            $( "#mean" ).text( "Average Reimbursement: $" + costMean );
-            $( "#variance" ).text( "Variance: $" + costVariance );
-            $( "#delta").text( "Average monthly reimbursement difference vs. Medicare FFS: $" + (bpAmount - costMean)/6);
+            $( "#mean" ).text( "Average Reimbursement: $" + Math.round(costMean) );
+            $( "#stdev" ).text( "Standard Deviation: $" + Math.round(costStDev) );
+            $( "#delta").text( "Average monthly reimbursement difference vs. Medicare FFS: $" + Math.round((bpAmount - costMean)/6));
 
             mcResults.pop();
 
@@ -335,12 +339,18 @@ for (var i = 0; i < mcLength; i++) {
             context.fillText(mcMin,2,350);
             var mcLength = mcResults.length;
             for (var i = 0; i < mcLength; i++) {
-                var barWidth = (2/3)*(350/mcLength);
-                var barHeight = (275/(mcMax - mcMin))*mcResults[i];
+                var barWidth = (350/mcLength);
+                var barHeight = (275/(mcMax - mcMin))*mcResults.sort(function(a, b) {
+                    return b-a;
+                })[i];
                 var barX = 50 + i*(350/mcLength) + (1/6)*(350/mcLength);
-                var barY = hAxis - (275/(mcMax - mcMin))*mcResults[i];
+                var barY = hAxis - (275/(mcMax - mcMin))*mcResults.sort(function(a, b) {
+                    return b-a;
+                })[i];;
                 context.beginPath();
-                if (mcResults[i] < 0) {
+                if (mcResults.sort(function(a, b) {
+                    return b-a;
+                })[i] < 0) {
                     context.fillStyle = "rgb(200,0,0)"
                 }
                 else {

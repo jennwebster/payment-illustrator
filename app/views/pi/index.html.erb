@@ -59,6 +59,7 @@
     <label>% of Patients with Mild Liver Disease: </label><input type="text" value="5">
     <label>% of Patients with Moderate to Severe Liver Disease: </label><input type="text" value="5">
     <label>% of Patients with HIV: </label><input type="text" value="5">
+    <label>% of Patients with ESRD: </label><input type="text" value="5">
   </div>
 </section>
 <section>
@@ -95,7 +96,7 @@
     <button name="Upload a proc file">Upload a treatment file</button>
     <br>
     <br>
-    <label>Average number of chemotherapy visits per week: </label><input type="number" id="ndx" name="ndx">
+    <label>Average number of chemotherapy hours per week: </label><input type="number" id="ndx" name="ndx">
     <label>% of patients receiving chemo per month: </label><input type="text">
     <label>% of patients receiving Neulasta: </label><input type = "text">
     <label>% of patients receiving monoclonal antibodies: </label><input type="text">
@@ -190,11 +191,13 @@
   <canvas id="sim" width="500" height="400"> </canvas>
 </section>
 <section>
-  <h4 id="mean">Average Reimbursement Per Patient:</h4>
-  <h4 id="variance">Variance:</h4>
-  <h4>% Patients with Cost Under Bundled Amount: 50.00%</h4>
-  <h4 id="delta">Average monthly reimbursement difference vs. Medicare FFS: $0</h4>
-  <h4 id="bestMonth">Best Month:</h4>
-  <h4 id="worstMonth">Worst Month:</h4>
-  <h4 id="pacrate">Potentially Avoidable Complication Rate: 14.00%</h4>
+  <ul>
+    <li><h4>Average Reimbursement</h4><h1 id="mean"></h1></li>
+    <li><h4>Standard Deviation</h4><h1 id="stdev"></h1></li>
+    <li><h4>% Pts Under <br>Bundled Payment</h4> <h1 id="underbp">50%</h1></li>
+    <li><h4 >Monthly difference <br>vs. Medicare FFS</h4> <h1 id="delta"></h1></li>
+    <li><h4>Best Month</h4><h1 id="bestMonth"></h1></li>
+    <li><h4>Worst Month</h4><h1 id="worstMonth"></h1></li>
+    <li><h4>PAC Rate</h4> <h1 id="pacrate">14%</h1></li>
+  </ul>
 </section>

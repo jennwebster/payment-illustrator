@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :providers
+  get 'personids/new'
 
   resources :dappers
 
